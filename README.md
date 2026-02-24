@@ -1,6 +1,6 @@
 # B13-Assignment-04
 
-## 1. Difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll
+## 1. Difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll 
 
 getElementById: With this, one element is found with its ID. ID is unique, therefore it will always pick one.
 getElementsByClassName: By this we are able to find all the elements which share the same class name. It Returns a list of elements.
@@ -35,3 +35,4 @@ It is also applicable to new elements that are subsequently introduced within th
 
 preventDefault: The prevents the default of an element. The point is that a link will not take up a new page or a form will not submit.
 stopPropagation(): Prevents the event propagation to the parent elements. The incident will remain on the surface on which it occurred.
+
