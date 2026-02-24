@@ -23,27 +23,51 @@
 </head>
 
 <body class="min-h-screen bg-base-200">
-  <header class="w-[95%] sm:w-[90%] md:w-[80%] text-center sm:text-left mx-auto pt-[50px]">
-    <h1 class="text-[32px] font-bold text-[#002C5C] mb-5">Job Application Tracker</h1>
+    <header class="w-[95%] sm:w-[90%] md:w-[80%] text-center sm:text-left mx-auto pt-[50px]">
+        <h1 class="text-[32px] font-bold text-[#002C5C] mb-5">Job Application Tracker</h1>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-        <div class="bg-base-100 p-5  rounded-xl">
-            <p>Total</p>
-            <p id="total-job-count" class="text-[#002C5C] text-[24px] font-bold">0</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            <div class="bg-base-100 p-5  rounded-xl">
+                <p>Total</p>
+                <p id="total-job-count" class="text-[#002C5C] text-[24px] font-bold">0</p>
+            </div>
+            <div class="bg-base-100 p-5  rounded-xl">
+                <p>Interview</p>
+                <p id="total-interview-count" class="text-[#10B981] text-[24px] font-bold">0</p>
+            </div>
+            <div class="bg-base-100 p-5  rounded-xl">
+                <p>Rejected</p>
+                <p id="total-rejected-count" class="text-[#EF4444] text-[24px] font-bold">0</p>
+            </div>
         </div>
-        <div class="bg-base-100 p-5  rounded-xl">
-            <p>Interview</p>
-            <p  id="total-interview-count" class="text-[#10B981] text-[24px] font-bold">0</p>
-        </div>
-        <div class="bg-base-100 p-5  rounded-xl">
-            <p>Rejected</p>
-            <p id="total-rejected-count" class="text-[#EF4444] text-[24px] font-bold">0</p>
-        </div>
-    </div>
-  </header>
+    </header>
 
 
-  <hr class="w-[95%] sm:w-[90%] md:w-[80%] mx-auto text-[#E6E7E9] mt-7">
+    <hr class="w-[95%] sm:w-[90%] md:w-[80%] mx-auto text-[#E6E7E9] mt-7">
+
+
+    <main class="w-[95%] sm:w-[90%] md:w-[80%] mx-auto">
+
+        <section>
+            <div class="flex justify-between items-center mt-[30px]">
+                <h2 class="text-xl text-[#002C5C] font-semibold">Available Jobs</h2>
+                <p class="text-[16px] text-gray-500">0</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center md:justify-start gap-2 pt-6">
+                <button class="bg-[#3B82F6] text-white px-8 py-2 rounded-md" id="all-jobs-filter-btn">
+                    All
+                </button>
+                <button class="bg-base-100 px-8 py-2 text-gray-500  rounded-md" id="all-interviews-filter-btn">
+                    Interview
+                </button>
+                <button class="bg-base-100 px-8 py-2 text-gray-500  rounded-md" id="all-rejected-filter-btn">
+                    Rejected
+                </button>
+            </div>
+        </section>
+
+    </main>
 
 
 
