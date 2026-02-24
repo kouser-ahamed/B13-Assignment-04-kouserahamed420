@@ -225,3 +225,68 @@ mainContainer.addEventListener("click", function (event) {
   }
 });
 
+// Helper function to get status class
+function getStatusClass(status) {
+  if (status === "INTERVIEW") {
+    return "job-Status px-3 py-2 text-[14px] rounded-md border bg-green-100 text-green-500 border-green-400 font-[600]";
+  } else {
+    return "job-Status px-3 py-2 text-[14px] rounded-md border bg-red-100 text-red-500 border-red-400 font-[600]";
+  }
+}
+
+// Render interview jobs
+function renderInterview() {
+  filterSection.innerHTML = "";
+
+  if (interviewList.length === 0) {
+    filterSection.appendChild(noJobAvailable);
+    noJobAvailable.classList.remove("hidden");
+    return;
+  } else {
+    noJobAvailable.classList.add("hidden");
+  }
+
+  for (let interview of interviewList) {
+    let div = document.createElement("div");
+    div.className =
+      "job-card-content flex flex-col gap-10 md:flex-row justify-between bg-base-100 p-6 rounded-lg mb-5 mt-7 cardContainer";
+
+    div.innerHTML = `
+      <div>
+        <h2 class="jobCompanyName text-[#002C5C] text-[18px] font-semibold">
+          ${interview.companyName}
+        </h2>
+        <p class="job-position text-[16px] text-gray-500">
+          ${interview.position}
+        </p>
+
+        <div class="text-gray-500 my-5 flex flex-col gap-4 md:flex-row md:gap-2">
+          <p class="job-location">${interview.location}</p>
+          <p class="job-type">${interview.type}</p>
+          <p class="job-salary">${interview.salary}</p>
+        </div>
+
+        <div>
+          <span class="${getStatusClass(interview.jobStatus)}">${interview.jobStatus}</span>
+        </div>
+
+        <p class="job-description text-[#323B49] text-[14px] mt-3">
+          ${interview.description}
+        </p>
+
+        <div class="job-actions mt-5 flex gap-2">
+          <button class="btn btn-sm btn-outline btn-success rounded-md">INTERVIEW</button>
+          <button class="btn btn-sm btn-outline btn-error rounded-md">REJECTED</button>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn btn-delete rounded-full">
+          <img src="./image/Trash.png" alt="Delete Job" />
+        </button>
+      </div>
+    `;
+    filterSection.appendChild(div);
+  }
+}
+
