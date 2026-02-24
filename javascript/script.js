@@ -17,6 +17,7 @@ const filterSection = document.getElementById("job-results");
 
 const noJobAvailable = document.getElementById("no-job-available");
 
+
 function calculateCount() {
   const jobCards = allCardSection.querySelectorAll(".cardContainer");
   total.innerText = jobCards.length;
@@ -345,4 +346,3 @@ function renderRejected() {
     filterSection.appendChild(div);
   }
 }
-
