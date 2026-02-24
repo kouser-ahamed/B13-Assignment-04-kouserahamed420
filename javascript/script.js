@@ -290,3 +290,59 @@ function renderInterview() {
   }
 }
 
+// Render rejected jobs
+function renderRejected() {
+  filterSection.innerHTML = "";
+
+  if (rejectedList.length === 0) {
+    filterSection.appendChild(noJobAvailable);
+    noJobAvailable.classList.remove("hidden");
+    return;
+  } else {
+    noJobAvailable.classList.add("hidden");
+  }
+
+  for (let reject of rejectedList) {
+    let div = document.createElement("div");
+    div.className =
+      "job-card-content flex flex-col gap-10 md:flex-row justify-between bg-base-100 p-6 rounded-lg mb-5 mt-7 cardContainer";
+
+    div.innerHTML = `
+      <div>
+        <h2 class="jobCompanyName text-[#002C5C] text-[18px] font-semibold">
+          ${reject.companyName}
+        </h2>
+        <p class="job-position text-[16px] text-gray-500">
+          ${reject.position}
+        </p>
+
+        <div class="text-gray-500 my-5 flex flex-col gap-4 md:flex-row md:gap-2">
+          <p class="job-location">${reject.location}</p>
+          <p class="job-type">${reject.type}</p>
+          <p class="job-salary">${reject.salary}</p>
+        </div>
+
+        <div>
+          <span class="${getStatusClass(reject.jobStatus)}">${reject.jobStatus}</span>
+        </div>
+
+        <p class="job-description text-[#323B49] text-[14px] mt-3">
+          ${reject.description}
+        </p>
+
+        <div class="job-actions mt-5 flex gap-2">
+          <button class="btn btn-sm btn-outline btn-success rounded-md">INTERVIEW</button>
+          <button class="btn btn-sm btn-outline btn-error rounded-md">REJECTED</button>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn btn-delete rounded-full">
+          <img src="./image/Trash.png" alt="Delete Job" />
+        </button>
+      </div>
+    `;
+    filterSection.appendChild(div);
+  }
+}
+
