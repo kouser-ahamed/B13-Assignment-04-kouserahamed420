@@ -43,3 +43,185 @@ function tabJobCount() {
   }
 }
 
+function toggleStyle(id) {
+  // Reset all buttons
+  allTabBtn.classList.add("bg-base-100", "text-gray-500");
+  interviewTabBtn.classList.add("bg-base-100", "text-gray-500");
+  rejectedTabBtn.classList.add("bg-base-100", "text-gray-500");
+
+  allTabBtn.classList.remove("bg-[#3B82F6]", "text-white");
+  interviewTabBtn.classList.remove("bg-[#3B82F6]", "text-white");
+  rejectedTabBtn.classList.remove("bg-[#3B82F6]", "text-white");
+
+  // Highlight selected button
+  const selected = document.getElementById(id);
+  selected.classList.remove("bg-base-100", "text-gray-500");
+  selected.classList.add("bg-[#3B82F6]", "text-white");
+
+  // Show/hide sections based on filter
+  if (id === "all-interviews-filter-btn") {
+    allCardSection.classList.add("hidden");
+    filterSection.classList.remove("hidden");
+    renderInterview();
+  } else if (id === "all-jobs-filter-btn") {
+    allCardSection.classList.remove("hidden");
+    filterSection.classList.add("hidden");
+    noJobAvailable.classList.add("hidden");
+  } else if (id === "all-rejected-filter-btn") {
+    allCardSection.classList.add("hidden");
+    filterSection.classList.remove("hidden");
+    renderRejected();
+  }
+
+  tabJobCount();
+}
+
+// Initial count calculation
+calculateCount();
+
+
+mainContainer.addEventListener("click", function (event) {
+  
+  if (
+    event.target.classList.contains("btn-success") ||
+    event.target.closest(".btn-success")
+  ) {
+    const btn = event.target.classList.contains("btn-success")
+      ? event.target
+      : event.target.closest(".btn-success");
+    const parenNode = btn.closest(".job-card-content");
+
+    const companyName = parenNode.querySelector(".jobCompanyName").innerText;
+    const position = parenNode.querySelector(".job-position").innerText;
+    const location = parenNode.querySelector(".job-location").innerText;
+    const type = parenNode.querySelector(".job-type").innerText;
+    const salary = parenNode.querySelector(".job-salary").innerText;
+    const description = parenNode.querySelector(".job-description").innerText;
+
+    // Remove from rejected list if exists
+    rejectedList = rejectedList.filter(
+      (job) => !(job.companyName === companyName && job.position === position),
+    );
+
+    // Update status in the DOM
+    const statusElement = parenNode.querySelector(".job-Status");
+    statusElement.innerText = "INTERVIEW";
+    statusElement.className =
+      "job-Status px-3 py-2 text-[14px] rounded-md border bg-green-100 text-green-500 border-green-400 font-[600]";
+
+    // Add to interview list
+    const CardInfo = {
+      companyName,
+      position,
+      location,
+      type,
+      salary,
+      jobStatus: "INTERVIEW",
+      description,
+    };
+
+    const jobExist = interviewList.find(
+      (item) =>
+        item.companyName === CardInfo.companyName &&
+        item.position === CardInfo.position,
+    );
+
+    if (!jobExist) {
+      interviewList.push(CardInfo);
+    }
+
+    calculateCount();
+
+    // Re-render if in filtered view
+    if (interviewTabBtn.classList.contains("bg-[#3B82F6]")) {
+      renderInterview();
+    }
+    if (rejectedTabBtn.classList.contains("bg-[#3B82F6]")) {
+      renderRejected();
+    }
+  }
+  
+  else if (
+    event.target.classList.contains("btn-error") ||
+    event.target.closest(".btn-error")
+  ) {
+    const btn = event.target.classList.contains("btn-error")
+      ? event.target
+      : event.target.closest(".btn-error");
+    const parenNode = btn.closest(".job-card-content");
+
+    const companyName = parenNode.querySelector(".jobCompanyName").innerText;
+    const position = parenNode.querySelector(".job-position").innerText;
+    const location = parenNode.querySelector(".job-location").innerText;
+    const type = parenNode.querySelector(".job-type").innerText;
+    const salary = parenNode.querySelector(".job-salary").innerText;
+    const description = parenNode.querySelector(".job-description").innerText;
+
+    // Remove from interview list if exists
+    interviewList = interviewList.filter(
+      (job) => !(job.companyName === companyName && job.position === position),
+    );
+
+    // Update status in the DOM
+    const statusElement = parenNode.querySelector(".job-Status");
+    statusElement.innerText = "REJECTED";
+    statusElement.className =
+      "job-Status px-3 py-2 text-[14px] rounded-md border bg-red-100 text-red-500 border-red-400 font-[600]";
+
+    // Add to rejected list
+    const CardInfo = {
+      companyName,
+      position,
+      location,
+      type,
+      salary,
+      jobStatus: "REJECTED",
+      description,
+    };
+
+    const jobExist = rejectedList.find(
+      (item) =>
+        item.companyName === CardInfo.companyName &&
+        item.position === CardInfo.position,
+    );
+
+    if (!jobExist) {
+      rejectedList.push(CardInfo);
+    }
+
+    calculateCount();
+
+    // Re-render if in filtered view
+    if (interviewTabBtn.classList.contains("bg-[#3B82F6]")) {
+      renderInterview();
+    }
+    if (rejectedTabBtn.classList.contains("bg-[#3B82F6]")) {
+      renderRejected();
+    }
+  }
+  // Handle DELETE button click
+  else if (
+    event.target.closest(".btn-delete") ||
+    event.target.classList.contains("btn-delete")
+  ) {
+    const card = event.target.closest(".cardContainer");
+
+    if (!card) return;
+
+    const companyName = card.querySelector(".jobCompanyName").innerText;
+    const position = card.querySelector(".job-position").innerText;
+
+    card.remove();
+
+    // Remove from both lists
+    interviewList = interviewList.filter(
+      (job) => job.companyName !== companyName || job.position !== position,
+    );
+    rejectedList = rejectedList.filter(
+      (job) => job.companyName !== companyName || job.position !== position,
+    );
+
+    calculateCount();
+  }
+});
+
