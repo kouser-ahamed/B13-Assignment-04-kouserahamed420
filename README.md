@@ -1,3 +1,134 @@
+# Job Application Tracker 🚀
+
+A simple and interactive **Job Application Tracker** built with HTML, Tailwind CSS (DaisyUI), and JavaScript. Easily track your job applications, interviews, and rejections with a modern, responsive interface.
+
+---
+
+## 📸 Project Demo
+
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
+  <img src="image/JobApplicationDemoPic/job-1.png" alt="Job Tracker Screenshot 1" width="300"/>
+  <img src="image/JobApplicationDemoPic/job2.png" alt="Job Tracker Screenshot 2" width="300"/>
+  <img src="image/JobApplicationDemoPic/job-3.png" alt="Job Tracker Screenshot 3" width="300"/>
+  <img src="image/JobApplicationDemoPic/job-4.png" alt="Job Tracker Screenshot 4" width="300"/>
+</div>
+
+---
+
+## 🔗 Live Demo
+[Live Project](https://kouser-ahamed.github.io/B13-Assignment-04-kouserahamed420/)
+
+---
+
+## 📝 Project Overview
+
+The **Job Application Tracker** is designed to help job seekers monitor their applications efficiently. Users can:
+
+- Track total jobs, interviews, and rejections.  
+- Filter jobs by status: All, Interview, or Rejected.  
+- Update job status dynamically.  
+- Delete jobs when no longer needed.  
+
+This project emphasizes a clean UI, usability, and responsive design for desktop and mobile.
+
+---
+
+## 🛠️ Technologies Used
+
+- **HTML5**  
+- **CSS3** with **Tailwind CSS** + **DaisyUI**  
+- **JavaScript (Vanilla)**  
+- Google Fonts: *Geist*
+
+---
+
+## ⚡ Core Features
+
+- Dynamic **Job Counters** (Total, Interviews, Rejected).  
+- Status Update Buttons: **INTERVIEW ✅** or **REJECTED ❌**.  
+- Filtering: Show All, Interview, or Rejected jobs.  
+- Delete jobs from any list.  
+- Responsive UI for all device sizes.  
+
+---
+
+## 📦 Dependencies
+
+- **Tailwind CSS** (via CDN)  
+- **DaisyUI** (via CDN)  
+- No backend or database; fully frontend-based.
+
+---
+
+## 🏗️ Project Structure
+
+```
+
+Job-Application-Tracker/
+│
+├─ index.html
+├─ style.css
+├─ script.js
+├─ image/
+│   └─ JobApplicationDemoPic/
+│       ├─ job-1.png
+│       ├─ job-2.png
+│       ├─ job-3.png
+│       └─ job-4.png
+└─ README.md
+
+````
+
+---
+
+## 💻 Local Setup Guide
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/kouser-ahamed/B13-Assignment-04-kouserahamed420.git
+````
+
+2. Open `index.html` in your browser.
+
+3. Use the interface to:
+
+   * Add job statuses: INTERVIEW or REJECTED.
+   * Filter jobs using buttons.
+   * Delete jobs when done.
+
+---
+
+## 🎓 Learning Outcomes
+
+* Managing state dynamically with JavaScript.
+* Conditional rendering based on user interactions.
+* Creating reusable components with HTML + Tailwind.
+* Building a clean, professional UI without frameworks.
+
+---
+
+## 🚀 Future Improvements
+
+* Add **user authentication** to save personal jobs.
+* Integrate a **backend database** for persistent data.
+* Implement **drag-and-drop** job status updates.
+* Add **dark mode** toggle for UI.
+
+---
+
+## ✅ Conclusion
+
+The **Job Application Tracker** is a lightweight, frontend-focused project that demonstrates state management, filtering, and dynamic UI updates using modern CSS and JavaScript.
+
+---
+
+## 🔗 Links
+
+* **Live Demo:** [https://kouser-ahamed.github.io/B13-Assignment-04-kouserahamed420/](https://kouser-ahamed.github.io/B13-Assignment-04-kouserahamed420/)
+* **GitHub Repo:** [https://github.com/kouser-ahamed/B13-Assignment-04-kouserahamed420](https://github.com/kouser-ahamed/B13-Assignment-04-kouserahamed420)
+
+
 # B13-Assignment-04
 
 ## 1. Difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll 
