@@ -6,7 +6,7 @@ A simple and interactive **Job Application Tracker** built with HTML, Tailwind C
 ## 📸 Project Demo
 
 ![Job Tracker Screenshot 1](image/JobApplicationDemoPic/job-1.png)  
-![Job Tracker Screenshot 2](image/JobApplicationDemoPic/job-2.png)  
+![Job Tracker Screenshot 1](image/JobApplicationDemoPic/job2.png)   
 ![Job Tracker Screenshot 3](image/JobApplicationDemoPic/job-3.png)  
 ![Job Tracker Screenshot 4](image/JobApplicationDemoPic/job-4.png)  
 
