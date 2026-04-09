@@ -3,15 +3,12 @@
 A simple and interactive **Job Application Tracker** built with HTML, Tailwind CSS (DaisyUI), and JavaScript. Easily track your job applications, interviews, and rejections with a modern, responsive interface.
 
 ---
-
 ## 📸 Project Demo
 
-<div style="display:flex;gap:10px;flex-wrap:wrap;">
-  <img src="image/JobApplicationDemoPic/job-1.png" alt="Job Tracker Screenshot 1" width="300"/>
-  <img src="image/JobApplicationDemoPic/job2.png" alt="Job Tracker Screenshot 2" width="300"/>
-  <img src="image/JobApplicationDemoPic/job-3.png" alt="Job Tracker Screenshot 3" width="300"/>
-  <img src="image/JobApplicationDemoPic/job-4.png" alt="Job Tracker Screenshot 4" width="300"/>
-</div>
+![Job Tracker Screenshot 1](image/JobApplicationDemoPic/job-1.png)  
+![Job Tracker Screenshot 2](image/JobApplicationDemoPic/job-2.png)  
+![Job Tracker Screenshot 3](image/JobApplicationDemoPic/job-3.png)  
+![Job Tracker Screenshot 4](image/JobApplicationDemoPic/job-4.png)  
 
 ---
 
